@@ -16,17 +16,18 @@ class WeatherVM: ObservableObject {
     let locationManager = LocationManager()
     let weatherService = WeatherService.shared
     
-    // MARK: Functions
     
+    // MARK: Functions
     func taskWeather() async {
         do {
             if let location = locationManager.currentLocation {
-                    wether = try await weatherService.weather(for: location)
-                    print("DEBUG: taskWeather")
-                
+                let wether = try await weatherService.weather(for: location)
+                await MainActor.run {
+                    self.wether = wether
+                }
             }
         } catch {
-            print(error)
+            print(error.localizedDescription)
         }
     }
 }
