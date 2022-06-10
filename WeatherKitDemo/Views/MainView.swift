@@ -8,8 +8,26 @@
 import SwiftUI
 
 struct MainView: View {
+    @EnvironmentObject var weatherVM: WeatherVM
+    
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Hello")
+            
+            if let weather = weatherVM.wether {
+                VStack {
+                    Text("NN")
+                    Text("\(weatherVM.locationManager.currentLocation!)")
+                        .font(.caption2)
+                    Text("\(weather.currentWeather.temperature.formatted())")
+                    Text("\(weather.currentWeather.date.formatted())")
+                }
+            }
+        }
+        .task(id: weatherVM.locationManager.currentLocation) {
+            await weatherVM.taskWeather()
+        }
     }
 }
 
@@ -25,5 +43,6 @@ struct MainView: View {
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
+            .environmentObject(WeatherVM())
     }
 }

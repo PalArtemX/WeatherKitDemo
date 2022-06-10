@@ -12,6 +12,7 @@
 		F8D707F228537361007F088F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8D707F128537361007F088F /* Preview Assets.xcassets */; };
 		F8D707FC285373AF007F088F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D707FB285373AF007F088F /* MainView.swift */; };
 		F8D707FF28537493007F088F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D707FE28537493007F088F /* LocationManager.swift */; };
+		F8D7080228538727007F088F /* WeatherVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D7080128538727007F088F /* WeatherVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,8 @@
 		F8D707F128537361007F088F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F8D707FB285373AF007F088F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		F8D707FE28537493007F088F /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		F8D70800285385B3007F088F /* WeatherKitDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WeatherKitDemo.entitlements; sourceTree = "<group>"; };
+		F8D7080128538727007F088F /* WeatherVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +62,7 @@
 				F8D707F828537387007F088F /* Models */,
 				F8D707FD2853747C007F088F /* Managers */,
 				F8D707EE28537361007F088F /* Assets.xcassets */,
+				F8D70800285385B3007F088F /* WeatherKitDemo.entitlements */,
 				F8D707F028537361007F088F /* Preview Content */,
 			);
 			path = WeatherKitDemo;
@@ -82,6 +86,7 @@
 		F8D707F92853738E007F088F /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				F8D7080128538727007F088F /* WeatherVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8D707FC285373AF007F088F /* MainView.swift in Sources */,
+				F8D7080228538727007F088F /* WeatherVM.swift in Sources */,
 				F8D707EB28537361007F088F /* WeatherKitDemoApp.swift in Sources */,
 				F8D707FF28537493007F088F /* LocationManager.swift in Sources */,
 			);
@@ -300,6 +306,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WeatherKitDemo/WeatherKitDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WeatherKitDemo/Preview Content\"";
@@ -331,6 +338,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WeatherKitDemo/WeatherKitDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WeatherKitDemo/Preview Content\"";
