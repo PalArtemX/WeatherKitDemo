@@ -8,17 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		F8D707EB28537361007F088F /* WeatherKitDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D707EA28537361007F088F /* WeatherKitDemoApp.swift */; };
-		F8D707ED28537361007F088F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D707EC28537361007F088F /* ContentView.swift */; };
 		F8D707EF28537361007F088F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8D707EE28537361007F088F /* Assets.xcassets */; };
 		F8D707F228537361007F088F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8D707F128537361007F088F /* Preview Assets.xcassets */; };
+		F8D707FC285373AF007F088F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D707FB285373AF007F088F /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F8D707E728537361007F088F /* WeatherKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8D707EA28537361007F088F /* WeatherKitDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherKitDemoApp.swift; sourceTree = "<group>"; };
-		F8D707EC28537361007F088F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F8D707EE28537361007F088F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8D707F128537361007F088F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F8D707FB285373AF007F088F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +52,9 @@
 			isa = PBXGroup;
 			children = (
 				F8D707EA28537361007F088F /* WeatherKitDemoApp.swift */,
-				F8D707EC28537361007F088F /* ContentView.swift */,
+				F8D707FA28537396007F088F /* Views */,
+				F8D707F92853738E007F088F /* ViewModels */,
+				F8D707F828537387007F088F /* Models */,
 				F8D707EE28537361007F088F /* Assets.xcassets */,
 				F8D707F028537361007F088F /* Preview Content */,
 			);
@@ -65,6 +67,28 @@
 				F8D707F128537361007F088F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F8D707F828537387007F088F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F8D707F92853738E007F088F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F8D707FA28537396007F088F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F8D707FB285373AF007F088F /* MainView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8D707ED28537361007F088F /* ContentView.swift in Sources */,
+				F8D707FC285373AF007F088F /* MainView.swift in Sources */,
 				F8D707EB28537361007F088F /* WeatherKitDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
