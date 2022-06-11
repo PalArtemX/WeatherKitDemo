@@ -11,20 +11,28 @@ import WeatherKit
 
 
 class WeatherVM: ObservableObject {
-    @Published var wether: Weather?
+    @Published var weather: Weather?
     
     let locationManager = LocationManager()
-    let weatherService = WeatherService.shared
+    private let weatherService = WeatherService.shared
+    private let locationByDefault = CLLocation(latitude: 24.206890, longitude: 18.711216)
     
     
     // MARK: Functions
-    func taskWeather() async {
+    func taskGetWeather() async {
         do {
             if let location = locationManager.currentLocation {
                 let wether = try await weatherService.weather(for: location)
                 await MainActor.run {
-                    self.wether = wether
+                    self.weather = wether
                 }
+                print("✅ Current Location")
+            } else {
+                let wether = try await weatherService.weather(for: locationByDefault)
+                await MainActor.run {
+                    self.weather = wether
+                }
+                print("⚠️ Location By Default")
             }
         } catch {
             print(error.localizedDescription)

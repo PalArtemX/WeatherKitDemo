@@ -13,20 +13,21 @@ struct MainView: View {
     
     var body: some View {
         VStack {
-            Text("Hello")
+            Text("Weather")
+                .font(.largeTitle)
+                .foregroundColor(.blue)
             
-            if let weather = weatherVM.wether {
-                VStack {
-                    Text("NN")
-                    Text("\(weatherVM.locationManager.currentLocation!)")
-                        .font(.caption2)
-                    Text("\(weather.currentWeather.temperature.formatted())")
-                    Text("\(weather.currentWeather.date.formatted())")
+            if let weather = weatherVM.weather {
+                VStack(spacing: 50.0) {
+                    CurrentWeatherView(weather: weather)
+                    HourlyForecastView(hourWeatherList: weather.hourlyForecast.forecast)
+                    
                 }
             }
+            Spacer()
         }
         .task(id: weatherVM.locationManager.currentLocation) {
-            await weatherVM.taskWeather()
+            await weatherVM.taskGetWeather()
         }
     }
 }
