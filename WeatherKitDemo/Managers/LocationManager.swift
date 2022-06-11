@@ -39,6 +39,7 @@ extension LocationManager: CLLocationManagerDelegate {
         
         DispatchQueue.main.async {
             self.currentLocation = location
+            print("✅ Get Current Location")
         }
     }
 }

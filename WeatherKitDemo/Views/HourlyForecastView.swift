@@ -13,13 +13,40 @@ struct HourlyForecastView: View {
     let hourWeatherList: [HourWeather]
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 20.0) {
+            // MARK: - header
             Text("Hourly Forecast")
-                .font(.headline)
-                .foregroundColor(.gray)
+                .font(.caption)
+                .foregroundColor(.white.opacity(0.5))
             
+            // MARK: - HourWeatherList
+            ScrollView(.horizontal) {
             
+                HStack {
+                    ForEach(hourWeatherList, id: \.date) { hourWeather in
+                        VStack(spacing: 15) {
+                            Text(hourWeather.date.formatted(date: .omitted, time: .shortened))
+                                .font(.caption2)
+                            Image(systemName: "\(hourWeather.symbolName).fill")
+                                .symbolRenderingMode(.hierarchical)
+                                .foregroundColor(.yellow)
+                                .font(.title2)
+                            
+                            Text(hourWeather.temperature.formatted())
+                                .fontWeight(.medium)
+                        }
+                        .padding(.horizontal)
+                    }
+                }
+                .foregroundColor(.white)
+               
+                
+            }
+           
         }
+        .padding()
+        .background(.ultraThinMaterial)
+        .clipShape(RoundedRectangle(cornerRadius: 15))
     }
 }
 

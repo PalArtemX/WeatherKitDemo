@@ -19,7 +19,7 @@ struct CurrentWeatherView: View {
             // MARK: - Header
             Text(weather.currentWeather.temperature.formatted())
                 .font(.largeTitle)
-                .foregroundColor(.blue)
+                .foregroundColor(.white)
             
             
 //            ScrollView(.horizontal) {

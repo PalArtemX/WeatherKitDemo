@@ -6,28 +6,45 @@
 //
 
 import SwiftUI
+import WeatherKit
+
 
 struct MainView: View {
     @EnvironmentObject var weatherVM: WeatherVM
     
+    var hourlyWeatherData: [HourWeather] {
+        if let weather = weatherVM.weather {
+            return Array(weather.hourlyForecast.filter { hourlyWeather in
+                return hourlyWeather.date.timeIntervalSince(Date()) >= 0
+            }.prefix(24))
+        } else {
+            return []
+        }
+    }
     
     var body: some View {
-        VStack {
-            Text("Weather")
-                .font(.largeTitle)
-                .foregroundColor(.blue)
+        ZStack {
+            Color.blue
+                .ignoresSafeArea()
             
-            if let weather = weatherVM.weather {
-                VStack(spacing: 50.0) {
-                    CurrentWeatherView(weather: weather)
-                    HourlyForecastView(hourWeatherList: weather.hourlyForecast.forecast)
-                    
+            VStack {
+                Text("Weather")
+                    .font(.largeTitle)
+                    .foregroundColor(.white)
+                
+                if let weather = weatherVM.weather {
+                    VStack(spacing: 50.0) {
+                        CurrentWeatherView(weather: weather)
+                        HourlyForecastView(hourWeatherList: hourlyWeatherData)
+                            .padding()
+                        
+                    }
                 }
+                Spacer()
             }
-            Spacer()
+            .task(id: weatherVM.locationManager.currentLocation) {
+                await weatherVM.taskGetWeather()
         }
-        .task(id: weatherVM.locationManager.currentLocation) {
-            await weatherVM.taskGetWeather()
         }
     }
 }
