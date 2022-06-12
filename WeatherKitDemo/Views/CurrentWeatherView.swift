@@ -17,7 +17,7 @@ struct CurrentWeatherView: View {
     var body: some View {
         VStack {
             // MARK: - Header
-            Text(weather.currentWeather.temperature.formatted())
+            Text(weather.currentWeather.temperature.converted(to: .celsius).formatted())
                 .font(.largeTitle)
                 .foregroundColor(.white)
             

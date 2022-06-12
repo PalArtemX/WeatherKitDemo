@@ -25,14 +25,14 @@ struct HourlyForecastView: View {
                 HStack {
                     ForEach(hourWeatherList, id: \.date) { hourWeather in
                         VStack(spacing: 15) {
-                            Text(hourWeather.date.formatted(date: .omitted, time: .shortened))
+                            Text(hourWeather.date.formatAsAbbreviatedTime())
                                 .font(.caption2)
-                            Image(systemName: "\(hourWeather.symbolName).fill")
+                            Image(systemName: "\(hourWeather.symbolName)")
                                 .symbolRenderingMode(.hierarchical)
                                 .foregroundColor(.yellow)
                                 .font(.title2)
                             
-                            Text(hourWeather.temperature.formatted())
+                            Text(hourWeather.temperature.converted(to: .celsius).formatted())
                                 .fontWeight(.medium)
                         }
                         .padding(.horizontal)

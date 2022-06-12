@@ -28,23 +28,31 @@ struct MainView: View {
                 .ignoresSafeArea()
             
             VStack {
-                Text("Weather")
-                    .font(.largeTitle)
-                    .foregroundColor(.white)
-                
                 if let weather = weatherVM.weather {
-                    VStack(spacing: 50.0) {
+                    VStack {
+                        Text("Weather")
+                            .font(.largeTitle)
+                            .foregroundColor(.white)
+                        
                         CurrentWeatherView(weather: weather)
+                        
+                        HourlyForecastChartView(hourlyWeatherDate: hourlyWeatherData)
+                            .frame(height: 200)
+                            .padding(.horizontal)
+                        
                         HourlyForecastView(hourWeatherList: hourlyWeatherData)
                             .padding()
                         
                     }
+                    Spacer()
+                    
+                    TenDayForecastView(dayWeatherList: weather.dailyForecast.forecast)
                 }
-                Spacer()
+               
             }
             .task(id: weatherVM.locationManager.currentLocation) {
                 await weatherVM.taskGetWeather()
-        }
+            }
         }
     }
 }
