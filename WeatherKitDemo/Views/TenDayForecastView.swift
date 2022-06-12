@@ -13,28 +13,38 @@ struct TenDayForecastView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("10-Day Forecast")
-                .font(.caption)
-                .foregroundColor(.white)
-                .opacity(0.9)
-                .padding(.horizontal)
+            // MARK: - Header
+            HStack {
+                Text("10-Day Forecast")
+                Spacer()
+                Spacer()
+                Text("Min")
+                Spacer()
+                Text("Max")
+            }
+            .font(.caption)
+            .foregroundColor(.white)
+            .opacity(0.9)
+            .padding(.horizontal)
             
+            // MARK: - List dayWeatherList
             List(dayWeatherList, id: \.date) { dailyWeather in
-                HStack {
+                HStack(spacing: 20.0) {
                     Text(dailyWeather.date.formatAsAbbreviatedDay())
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
                     Image(systemName: "\(dailyWeather.symbolName)")
-                        .foregroundColor(.yellow)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    Spacer()
+                    Spacer()
                     
                     Text(dailyWeather.lowTemperature.converted(to: .celsius).formatted())
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                   
+                    
+                    Spacer()
+                    
                     Text(dailyWeather.highTemperature.converted(to: .celsius).formatted())
-                        
                 }
-                .listRowBackground(Color.blue)
+                .listRowBackground(Color.blue.opacity(0.7))
                 .foregroundColor(.white)
             }
             .listStyle(.plain)

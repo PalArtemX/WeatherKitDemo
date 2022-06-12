@@ -21,12 +21,12 @@ struct HourlyForecastView: View {
             
             // MARK: - HourWeatherList
             ScrollView(.horizontal) {
-            
                 HStack {
                     ForEach(hourWeatherList, id: \.date) { hourWeather in
                         VStack(spacing: 15) {
                             Text(hourWeather.date.formatAsAbbreviatedTime())
                                 .font(.caption2)
+                            
                             Image(systemName: "\(hourWeather.symbolName)")
                                 .symbolRenderingMode(.hierarchical)
                                 .foregroundColor(.yellow)
@@ -39,10 +39,7 @@ struct HourlyForecastView: View {
                     }
                 }
                 .foregroundColor(.white)
-               
-                
             }
-           
         }
         .padding()
         .background(.ultraThinMaterial)

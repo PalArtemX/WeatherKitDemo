@@ -22,8 +22,6 @@ class LocationManager: NSObject, ObservableObject {
         locationManager.startUpdatingLocation()
         locationManager.delegate = self
     }
-    
-    
 }
 
 

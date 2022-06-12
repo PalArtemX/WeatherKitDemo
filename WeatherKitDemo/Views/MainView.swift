@@ -24,17 +24,14 @@ struct MainView: View {
     
     var body: some View {
         ZStack {
-            Color.blue
+            Color.blue.opacity(0.7)
                 .ignoresSafeArea()
             
             VStack {
                 if let weather = weatherVM.weather {
                     VStack {
-                        Text("Weather")
-                            .font(.largeTitle)
-                            .foregroundColor(.white)
-                        
                         CurrentWeatherView(weather: weather)
+                        
                         
                         HourlyForecastChartView(hourlyWeatherDate: hourlyWeatherData)
                             .frame(height: 200)
@@ -43,12 +40,9 @@ struct MainView: View {
                         HourlyForecastView(hourWeatherList: hourlyWeatherData)
                             .padding()
                         
+                        TenDayForecastView(dayWeatherList: weather.dailyForecast.forecast)
                     }
-                    Spacer()
-                    
-                    TenDayForecastView(dayWeatherList: weather.dailyForecast.forecast)
                 }
-               
             }
             .task(id: weatherVM.locationManager.currentLocation) {
                 await weatherVM.taskGetWeather()

@@ -13,29 +13,20 @@ import CoreLocation
 struct CurrentWeatherView: View {
     let weather: Weather
     
-    
     var body: some View {
         VStack {
-            // MARK: - Header
+            Text("Weather")
+                .fontWeight(.semibold)
+            
             Text(weather.currentWeather.temperature.converted(to: .celsius).formatted())
-                .font(.largeTitle)
-                .foregroundColor(.white)
-            
-            
-//            ScrollView(.horizontal) {
-//                
-//                HStack {
-//                    ForEach(weather.hourlyForecast.forecast, id: \.date) { item in
-//                        VStack {
-//                            Text("\(item.temperature.formatted())")
-//                                .foregroundColor(.blue)
-//                            Text("\(item.date.formatted(date: .omitted, time: .standard))")
-//                        }
-//                    }
-//                }
-//            }
-            
+                        
         }
+        .font(.title2)
+        .foregroundColor(.white)
+        .frame(maxWidth: .infinity)
+        .background(.ultraThinMaterial)
+        .cornerRadius(15)
+        .padding(.horizontal)
     }
 }
 

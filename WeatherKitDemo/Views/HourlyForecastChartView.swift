@@ -19,9 +19,7 @@ struct HourlyForecastChartView: View {
                 BarMark(
                     x: .value("Hour", hourlyWeather.date.formatAsAbbreviatedTime()),
                     y: .value("Temperature", hourlyWeather.temperature.converted(to: .fahrenheit).value))
-                
             }
-            
         }
         .padding()
         .background(.ultraThinMaterial)
